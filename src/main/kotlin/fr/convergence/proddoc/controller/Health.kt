@@ -10,7 +10,6 @@ class Health {
 
     @GET
     fun health(): String {
-        return "OK, Outlaw"
+        return "Ok, Outlaw"
     }
-
 }
