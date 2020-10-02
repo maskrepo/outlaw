@@ -53,22 +53,12 @@ dependencies {
     implementation(enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion"))
     implementation("io.quarkus:quarkus-resteasy")
     implementation("io.quarkus:quarkus-rest-client")
-    implementation("io.quarkus:quarkus-kafka-client:$quarkusVersion")
-    implementation("io.quarkus:quarkus-smallrye-reactive-messaging-kafka:$quarkusVersion")
-    implementation("io.quarkus:quarkus-vertx-web")
-    implementation("io.vertx:vertx-web-client")
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:1.0.0-RC")
 
     testImplementation("io.quarkus:quarkus-junit5")
 }
 
-tasks {
-    compileKotlin {
-        kotlinOptions.jvmTarget = "11"
-    }
-    compileTestKotlin {
-        kotlinOptions.jvmTarget = "11"
-    }
+configure<JavaPluginConvention> {
+    sourceCompatibility = JavaVersion.VERSION_11
 }
 
 allOpen {

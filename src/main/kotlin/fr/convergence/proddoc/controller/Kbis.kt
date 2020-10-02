@@ -2,6 +2,7 @@ package fr.convergence.proddoc.controller
 
 import io.vertx.core.logging.Logger
 import io.vertx.core.logging.LoggerFactory
+import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
 import javax.ws.rs.Consumes
 import javax.ws.rs.GET
