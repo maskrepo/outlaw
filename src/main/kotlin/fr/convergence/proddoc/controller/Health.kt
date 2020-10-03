@@ -10,7 +10,5 @@ import javax.ws.rs.Path
 class Health {
 
     @GET
-    fun health(): String {
-        return "Ok, Outlaw"
-    }
+    fun health() = "Ok, Outlaw"
 }
