@@ -34,4 +34,4 @@ jobs:
           file: ./src/main/docker/Dockerfile.native
           platforms: linux/amd64
           push: true
-          tags: mask/outlaw:latest
+          tags: mygreffe/outlaw:latest
