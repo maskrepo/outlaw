@@ -1,9 +1,9 @@
-val quarkusVersion: String = "1.5.2.Final"
+val quarkusVersion: String = "1.8.0.Final"
 
 plugins {
     kotlin("jvm") version "1.4.10"
     kotlin("plugin.serialization") version "1.4.10"
-    id ("io.quarkus") version "1.5.2.Final"
+    id ("io.quarkus") version "1.8.0.Final"
     id ("org.jetbrains.kotlin.plugin.allopen") version "1.3.72"
     id ("org.sonarqube") version "2.7"
     id ("jacoco")
@@ -50,11 +50,11 @@ publishing {
 }
 
 dependencies {
-    implementation(enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion"))
-    implementation("io.quarkus:quarkus-resteasy")
-    implementation("io.quarkus:quarkus-rest-client")
+    implementation("io.quarkus:quarkus-resteasy:$quarkusVersion")
+    implementation("io.quarkus:quarkus-rest-client:$quarkusVersion")
+    implementation("org.jboss.slf4j:slf4j-jboss-logging:1.2.1.Final")
 
-    testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation("io.quarkus:quarkus-junit5:$quarkusVersion")
 }
 
 configure<JavaPluginConvention> {
