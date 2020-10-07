@@ -1,7 +1,7 @@
 FROM registry.access.redhat.com/ubi8/ubi-minimal
 WORKDIR /work/
 COPY build/*-runner /work/application
-COPY build/resources/main/* /work/application
+COPY build/resources/main/* /work/
 RUN chmod 775 /work
 EXPOSE 8100
 CMD ["./application", "-Dquarkus.http.host=0.0.0.0"]
