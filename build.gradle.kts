@@ -1,4 +1,5 @@
 val quarkusVersion: String = "1.5.2.Final"
+val MaskModelVersion = "1.0.4-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -11,7 +12,7 @@ plugins {
 }
 
 group = "fr.convergence.proddoc"
-version = "1.0.0-SNAPSHOT"
+version = "1.0.1-SNAPSHOT"
 
 // je mets ces 2 variables ici car je n'arrive pas à les mettre ailleurs
 // (dans settings.gradle.kts par exemple)
@@ -53,6 +54,11 @@ dependencies {
     implementation(enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion"))
     implementation("io.quarkus:quarkus-resteasy")
     implementation("io.quarkus:quarkus-rest-client")
+
+    implementation("io.quarkus:quarkus-kafka-client:$quarkusVersion")
+    implementation("io.quarkus:quarkus-smallrye-reactive-messaging-kafka:$quarkusVersion")
+
+    implementation("fr.convergence.proddoc.lib:mask-model:$MaskModelVersion")
 
     testImplementation("io.quarkus:quarkus-junit5")
 }
