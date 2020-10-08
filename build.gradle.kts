@@ -1,5 +1,4 @@
-val quarkusVersion: String = "1.5.2.Final"
-val MaskModelVersion = "1.0.4-SNAPSHOT"
+val quarkusVersion: String = "1.8.0.Final"
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -12,7 +11,7 @@ plugins {
 }
 
 group = "fr.convergence.proddoc"
-version = "1.0.1-SNAPSHOT"
+version = "1.0.0-SNAPSHOT"
 
 // je mets ces 2 variables ici car je n'arrive pas à les mettre ailleurs
 // (dans settings.gradle.kts par exemple)
@@ -60,7 +59,7 @@ dependencies {
 
     implementation("fr.convergence.proddoc.lib:mask-model:$MaskModelVersion")
 
-    testImplementation("io.quarkus:quarkus-junit5")
+    testImplementation("io.quarkus:quarkus-junit5:$quarkusVersion")
 }
 
 configure<JavaPluginConvention> {

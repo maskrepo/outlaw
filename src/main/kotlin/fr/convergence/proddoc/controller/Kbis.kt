@@ -2,6 +2,8 @@ package fr.convergence.proddoc.controller
 
 import io.vertx.core.logging.Logger
 import io.vertx.core.logging.LoggerFactory
+import java.io.FileNotFoundException
+import java.io.FileOutputStream
 import javax.annotation.PostConstruct
 import javax.enterprise.context.ApplicationScoped
 import javax.ws.rs.Consumes
@@ -22,8 +24,12 @@ class KbisDummy {
     @GET
     @Consumes(MediaType.APPLICATION_OCTET_STREAM)
     fun delivrerKbis(@QueryParam("numeroGestion") numeroGestion: String?): Response {
-        val resourceAsStream = this::class.java.getResource("/kbis.pdf").openStream()
-        LOG.info("Délivre le kbis : $resourceAsStream")
-        return Response.ok(resourceAsStream).build()
+        val fileOutputStream = try {
+             FileOutputStream("kbis.pdf")
+        } catch (ex : FileNotFoundException) {
+            this::class.java.getResource("/kbis.pdf").openStream()
+        }
+        LOG.info("Délivre le kbis : $fileOutputStream")
+        return Response.ok(fileOutputStream).build()
     }
 }
