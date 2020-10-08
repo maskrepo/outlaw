@@ -1,9 +1,10 @@
 val quarkusVersion: String = "1.8.0.Final"
+val MaskModelVersion = "1.0.4-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.4.10"
     kotlin("plugin.serialization") version "1.4.10"
-    id ("io.quarkus") version "1.5.2.Final"
+    id ("io.quarkus") version "1.8.0.Final"
     id ("org.jetbrains.kotlin.plugin.allopen") version "1.3.72"
     id ("org.sonarqube") version "2.7"
     id ("jacoco")
