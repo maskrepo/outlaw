@@ -1,5 +1,5 @@
 val quarkusVersion: String = "1.8.0.Final"
-val MaskModelVersion = "1.1.2-SNAPSHOT"
+val MaskModelVersion = "1.1.3-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.4.10"
@@ -12,7 +12,7 @@ plugins {
 }
 
 group = "fr.convergence.proddoc"
-version = "1.0.1-SNAPSHOT"
+version = "1.0.2-SNAPSHOT"
 
 // je mets ces 2 variables ici car je n'arrive pas à les mettre ailleurs
 // (dans settings.gradle.kts par exemple)
@@ -51,7 +51,6 @@ publishing {
 }
 
 dependencies {
-    implementation(enforcedPlatform("io.quarkus:quarkus-bom:$quarkusVersion"))
     implementation("io.quarkus:quarkus-resteasy:$quarkusVersion")
     implementation("io.quarkus:quarkus-rest-client:$quarkusVersion")
 
@@ -70,4 +69,10 @@ configure<JavaPluginConvention> {
 allOpen {
     annotation("javax.enterprise.context.ApplicationScoped")
     annotation("javax.ws.rs.Path")
+}
+
+tasks.register("printVersion") {
+    doLast {
+        File(projectDir, "version.txt").appendText("${project.version}")
+    }
 }
