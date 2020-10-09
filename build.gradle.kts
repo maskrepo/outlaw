@@ -1,5 +1,5 @@
 val quarkusVersion: String = "1.8.0.Final"
-val MaskModelVersion = "1.0.4-SNAPSHOT"
+val MaskModelVersion = "1.1.2-SNAPSHOT"
 
 plugins {
     kotlin("jvm") version "1.4.10"
