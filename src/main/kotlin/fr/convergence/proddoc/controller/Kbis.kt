@@ -23,7 +23,8 @@ class KbisDummy {
 
     @GET
     @Consumes(MediaType.APPLICATION_OCTET_STREAM)
-    fun delivrerKbis(@QueryParam("numeroGestion") numeroGestion: String?): Response {
+    fun delivrerKbis(@QueryParam("numeroGestion") numeroGestion :String?,
+                    @QueryParam ("identifiantRegistre") identifiantRegistre :String?): Response {
         val fileOutputStream = this::class.java.getResource("/kbis.pdf").openStream()
         LOG.info("Délivre le kbis : $fileOutputStream")
         return Response.ok(fileOutputStream).build()
